@@ -48,14 +48,16 @@ public class AgregarPersona extends AppCompatActivity {
     }
 
     public void guardar(View v){
-        String ced, nom, ape;
-        int foto, sexo;
-        foto = this.fotoAleatoria();
+        String ced, nom, ape, foto, id;
+        int sexo;
+        //foto = this.fotoAleatoria();
+        id = Datos.getId();
+        foto = id+".jpg";
         ced = txtCedula.getText().toString();
         nom = txtNombre.getText().toString();
         ape = txtApellido.getText().toString();
         sexo = cmbSexo.getSelectedItemPosition();
-        Persona p = new Persona(foto,ced,nom,ape, sexo);
+        Persona p = new Persona(id,foto,ced,nom,ape, sexo);
         p.guardar();
         limpiar();
         Snackbar.make(v, getResources().getString(R.string.guardado_exito), Snackbar.LENGTH_SHORT).show();
