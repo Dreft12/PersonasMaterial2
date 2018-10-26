@@ -63,6 +63,12 @@ public class AgregarPersona extends AppCompatActivity {
         Snackbar.make(v, getResources().getString(R.string.guardado_exito), Snackbar.LENGTH_SHORT).show();
 
     }
+    public void  seleccionar_foto(View v){
+        Intent in = new Intent();
+        in.setType("image/*");
+        in.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(in,"Seleccionar foto"),1);
+    }
 
     public void onBackPressed(){
         finish();
